@@ -1,0 +1,100 @@
+[
+  {
+    "type": "overdue",
+    "count": 2,
+    "description": "退货周期超过 10 天的异常订单",
+    "items": [
+      {
+        "id": "0c1c4254-8cc6-4d40-9e2c-9c54deedecd2",
+        "orderId": "RVW-A-1",
+        "returnId": "RET-RVW-1",
+        "anomalyType": "overdue",
+        "description": "退货超期 24 天（阈值：10 天）",
+        "severity": "medium",
+        "daysOverdue": 24,
+        "rawData": {
+          "order": {
+            "orderId": "RVW-A-1",
+            "orderDate": "2026-01-01T00:00:00.000Z",
+            "customerId": "C1",
+            "productId": "P1",
+            "amount": 120
+          },
+          "return": {
+            "returnId": "RET-RVW-1",
+            "orderId": "RVW-A-1",
+            "returnDate": "2026-01-25T00:00:00.000Z",
+            "reason": "性能故障",
+            "status": "approved"
+          }
+        },
+        "createdAt": "2026-06-07T13:35:36.282Z"
+      },
+      {
+        "id": "c5d7ebb9-56b1-40c0-89d7-aa16e2c7072b",
+        "orderId": "RVW-A-1",
+        "returnId": "RET-RVW-2",
+        "anomalyType": "overdue",
+        "description": "退货超期 27 天（阈值：10 天）",
+        "severity": "medium",
+        "daysOverdue": 27,
+        "rawData": {
+          "order": {
+            "orderId": "RVW-A-1",
+            "orderDate": "2026-01-01T00:00:00.000Z",
+            "customerId": "C1",
+            "productId": "P1",
+            "amount": 120
+          },
+          "return": {
+            "returnId": "RET-RVW-2",
+            "orderId": "RVW-A-1",
+            "returnDate": "2026-01-28T00:00:00.000Z",
+            "reason": "性能故障",
+            "status": "approved"
+          }
+        },
+        "createdAt": "2026-06-07T13:35:36.282Z"
+      }
+    ]
+  },
+  {
+    "type": "duplicate",
+    "count": 1,
+    "description": "30 天内同一订单多次退货",
+    "items": [
+      {
+        "id": "97bae52e-400b-4e0a-8cfb-2deb4e8bce2b",
+        "orderId": "RVW-A-1",
+        "returnId": "RET-RVW-1",
+        "anomalyType": "duplicate",
+        "description": "30 天内重复退货 2 次",
+        "severity": "medium",
+        "duplicateCount": 2,
+        "rawData": {
+          "order": {
+            "orderId": "RVW-A-1",
+            "orderDate": "2026-01-01T00:00:00.000Z",
+            "customerId": "C1",
+            "productId": "P1",
+            "amount": 120
+          },
+          "return": {
+            "returnId": "RET-RVW-1",
+            "orderId": "RVW-A-1",
+            "returnDate": "2026-01-25T00:00:00.000Z",
+            "reason": "性能故障",
+            "status": "approved"
+          }
+        },
+        "createdAt": "2026-06-07T13:35:36.282Z"
+      }
+    ]
+  },
+  {
+    "type": "conflict",
+    "count": 0,
+    "description": "质检结果为 性能故障 但退货未被拒绝",
+    "items": []
+  }
+]

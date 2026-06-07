@@ -11,7 +11,9 @@
     "check": "tsc --noEmit",
     "server:dev": "nodemon",
     "dev": "concurrently \"npm run client:dev\" \"npm run server:dev\"",
-    "test:validation": "tsx test/validation.test.ts"
+    "test:validation": "tsx test/validation.test.ts",
+    "test:api-docs": "tsx test/check-api-docs.ts",
+    "test:e2e": "tsx test/e2e.test.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

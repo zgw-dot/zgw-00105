@@ -1,0 +1,38 @@
+{
+  "id": "1b9da6d4-b4e9-44fd-8878-a3b3653b723b",
+  "mappingId": "6d343a71-fa6b-4f13-b876-33ba56a04c7b",
+  "rulesId": "94dca821-d9bc-4f84-bd4d-f56b00945919",
+  "files": {
+    "order": {
+      "fileId": "d00b1c6f-a9ca-47d7-a3db-beefa4a03683",
+      "fileName": "api_test_orders.csv",
+      "rowCount": 20
+    },
+    "return": {
+      "fileId": "12735852-ed57-432f-93e8-c3132e7a942b",
+      "fileName": "api_test_returns.csv",
+      "rowCount": 20
+    },
+    "quality": {
+      "fileId": "7fd8b115-e060-46dd-86fb-908f6a678278",
+      "fileName": "api_test_quality.csv",
+      "rowCount": 20
+    }
+  },
+  "summary": {
+    "totalOrders": 19,
+    "totalReturns": 20,
+    "totalQuality": 20,
+    "totalAnomalies": 14,
+    "anomalyByType": {
+      "overdue": 3,
+      "duplicate": 2,
+      "conflict": 9
+    },
+    "badRowCount": 1,
+    "processedAt": "2026-06-07T13:27:34.841Z"
+  },
+  "status": "partial",
+  "createdAt": "2026-06-07T13:27:34.841Z",
+  "completedAt": "2026-06-07T13:27:34.841Z"
+}

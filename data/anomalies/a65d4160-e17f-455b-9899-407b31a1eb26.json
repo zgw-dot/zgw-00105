@@ -1,0 +1,459 @@
+[
+  {
+    "type": "overdue",
+    "count": 3,
+    "description": "退货周期超过 15 天的异常订单",
+    "items": [
+      {
+        "id": "b6d918dc-4efa-42d6-a17e-f25995429455",
+        "orderId": "ORD001",
+        "returnId": "RET001",
+        "anomalyType": "overdue",
+        "description": "退货超期 17 天（阈值：15 天）",
+        "severity": "medium",
+        "daysOverdue": 17,
+        "rawData": {
+          "order": {
+            "orderId": "ORD001",
+            "orderDate": "2024-01-15T00:00:00.000Z",
+            "customerId": "C001",
+            "productId": "手机",
+            "amount": 3999
+          },
+          "return": {
+            "returnId": "RET001",
+            "orderId": "ORD001",
+            "returnDate": "2024-02-01T00:00:00.000Z",
+            "reason": "质量问题",
+            "status": "已完成"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      },
+      {
+        "id": "dc1f7c0d-5e29-4ebd-8d02-fc8399c17d9f",
+        "orderId": "ORD003",
+        "returnId": "RET003",
+        "anomalyType": "overdue",
+        "description": "退货超期 36 天（阈值：15 天）",
+        "severity": "high",
+        "daysOverdue": 36,
+        "rawData": {
+          "order": {
+            "orderId": "ORD003",
+            "orderDate": "2024-01-25T00:00:00.000Z",
+            "customerId": "C003",
+            "productId": "耳机",
+            "amount": 599
+          },
+          "return": {
+            "returnId": "RET003",
+            "orderId": "ORD003",
+            "returnDate": "2024-03-01T00:00:00.000Z",
+            "reason": "功能异常",
+            "status": "处理中"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      },
+      {
+        "id": "de3d1bba-3e95-4203-950b-a5946c66dd8a",
+        "orderId": "ORD001",
+        "returnId": "RET020",
+        "anomalyType": "overdue",
+        "description": "退货超期 21 天（阈值：15 天）",
+        "severity": "medium",
+        "daysOverdue": 21,
+        "rawData": {
+          "order": {
+            "orderId": "ORD001",
+            "orderDate": "2024-01-15T00:00:00.000Z",
+            "customerId": "C001",
+            "productId": "手机",
+            "amount": 3999
+          },
+          "return": {
+            "returnId": "RET020",
+            "orderId": "ORD001",
+            "returnDate": "2024-02-05T00:00:00.000Z",
+            "reason": "功能异常",
+            "status": "已完成"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      }
+    ]
+  },
+  {
+    "type": "duplicate",
+    "count": 2,
+    "description": "30 天内同一订单多次退货",
+    "items": [
+      {
+        "id": "998060b1-509c-4a16-848e-2af4aac69b5a",
+        "orderId": "ORD001",
+        "returnId": "RET001",
+        "anomalyType": "duplicate",
+        "description": "30 天内重复退货 2 次",
+        "severity": "medium",
+        "duplicateCount": 2,
+        "rawData": {
+          "order": {
+            "orderId": "ORD001",
+            "orderDate": "2024-01-15T00:00:00.000Z",
+            "customerId": "C001",
+            "productId": "手机",
+            "amount": 3999
+          },
+          "return": {
+            "returnId": "RET001",
+            "orderId": "ORD001",
+            "returnDate": "2024-02-01T00:00:00.000Z",
+            "reason": "质量问题",
+            "status": "已完成"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      },
+      {
+        "id": "238a0705-098b-4b9a-a14b-e5019a126b4b",
+        "orderId": "ORD005",
+        "returnId": "RET004",
+        "anomalyType": "duplicate",
+        "description": "30 天内重复退货 2 次",
+        "severity": "medium",
+        "duplicateCount": 2,
+        "rawData": {
+          "order": {
+            "orderId": "ORD005",
+            "orderDate": "2024-02-10T00:00:00.000Z",
+            "customerId": "C001",
+            "productId": "平板",
+            "amount": 2599
+          },
+          "return": {
+            "returnId": "RET004",
+            "orderId": "ORD005",
+            "returnDate": "2024-02-15T00:00:00.000Z",
+            "reason": "质量问题",
+            "status": "已完成"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      }
+    ]
+  },
+  {
+    "type": "conflict",
+    "count": 9,
+    "description": "质检结果为 性能故障/外观瑕疵/包装问题 但退货未被拒绝",
+    "items": [
+      {
+        "id": "dca99579-1209-487a-9816-76a17f4668e1",
+        "orderId": "ORD001",
+        "returnId": "RET020",
+        "qualityId": "QAD001",
+        "anomalyType": "conflict",
+        "description": "质检冲突：性能故障，但退货状态为 已完成",
+        "severity": "high",
+        "conflictType": "性能故障",
+        "rawData": {
+          "order": {
+            "orderId": "ORD001",
+            "orderDate": "2024-01-15T00:00:00.000Z",
+            "customerId": "C001",
+            "productId": "手机",
+            "amount": 3999
+          },
+          "return": {
+            "returnId": "RET020",
+            "orderId": "ORD001",
+            "returnDate": "2024-02-05T00:00:00.000Z",
+            "reason": "功能异常",
+            "status": "已完成"
+          },
+          "quality": {
+            "qualityId": "QAD001",
+            "orderId": "ORD001",
+            "inspectDate": "2024-01-20T00:00:00.000Z",
+            "result": "不合格",
+            "defectType": "性能故障"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      },
+      {
+        "id": "c991d2c2-d7ce-496e-ba2b-4dfd3c21b8fc",
+        "orderId": "ORD003",
+        "returnId": "RET003",
+        "qualityId": "QAD003",
+        "anomalyType": "conflict",
+        "description": "质检冲突：外观瑕疵，但退货状态为 处理中",
+        "severity": "high",
+        "conflictType": "外观瑕疵",
+        "rawData": {
+          "order": {
+            "orderId": "ORD003",
+            "orderDate": "2024-01-25T00:00:00.000Z",
+            "customerId": "C003",
+            "productId": "耳机",
+            "amount": 599
+          },
+          "return": {
+            "returnId": "RET003",
+            "orderId": "ORD003",
+            "returnDate": "2024-03-01T00:00:00.000Z",
+            "reason": "功能异常",
+            "status": "处理中"
+          },
+          "quality": {
+            "qualityId": "QAD003",
+            "orderId": "ORD003",
+            "inspectDate": "2024-01-28T00:00:00.000Z",
+            "result": "不合格",
+            "defectType": "外观瑕疵"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      },
+      {
+        "id": "0b71f61b-2eea-4906-a386-9bf3836e4ead",
+        "orderId": "ORD006",
+        "returnId": "RET006",
+        "qualityId": "QAD005",
+        "anomalyType": "conflict",
+        "description": "质检冲突：性能故障，但退货状态为 待处理",
+        "severity": "high",
+        "conflictType": "性能故障",
+        "rawData": {
+          "order": {
+            "orderId": "ORD006",
+            "orderDate": "2024-02-15T00:00:00.000Z",
+            "customerId": "C005",
+            "productId": "相机",
+            "amount": 4599
+          },
+          "return": {
+            "returnId": "RET006",
+            "orderId": "ORD006",
+            "returnDate": "2024-02-18T00:00:00.000Z",
+            "reason": "包装损坏",
+            "status": "待处理"
+          },
+          "quality": {
+            "qualityId": "QAD005",
+            "orderId": "ORD006",
+            "inspectDate": "2024-02-17T00:00:00.000Z",
+            "result": "不合格",
+            "defectType": "性能故障"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      },
+      {
+        "id": "08c4dbd7-41cf-48d3-b913-748ed6d4f5ff",
+        "orderId": "ORD008",
+        "returnId": "RET008",
+        "qualityId": "QAD007",
+        "anomalyType": "conflict",
+        "description": "质检冲突：包装问题，但退货状态为 处理中",
+        "severity": "high",
+        "conflictType": "包装问题",
+        "rawData": {
+          "order": {
+            "orderId": "ORD008",
+            "orderDate": "2024-03-01T00:00:00.000Z",
+            "customerId": "C002",
+            "productId": "手机",
+            "amount": 4299
+          },
+          "return": {
+            "returnId": "RET008",
+            "orderId": "ORD008",
+            "returnDate": "2024-03-05T00:00:00.000Z",
+            "reason": "质量问题",
+            "status": "处理中"
+          },
+          "quality": {
+            "qualityId": "QAD007",
+            "orderId": "ORD008",
+            "inspectDate": "2024-03-03T00:00:00.000Z",
+            "result": "不合格",
+            "defectType": "包装问题"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      },
+      {
+        "id": "b849ba4d-ed61-43c2-abcd-a79ba6cded29",
+        "orderId": "ORD010",
+        "returnId": "RET010",
+        "qualityId": "QAD009",
+        "anomalyType": "conflict",
+        "description": "质检冲突：性能故障，但退货状态为 已完成",
+        "severity": "high",
+        "conflictType": "性能故障",
+        "rawData": {
+          "order": {
+            "orderId": "ORD010",
+            "orderDate": "2024-03-10T00:00:00.000Z",
+            "customerId": "C008",
+            "productId": "笔记本电脑",
+            "amount": 7599
+          },
+          "return": {
+            "returnId": "RET010",
+            "orderId": "ORD010",
+            "returnDate": "2024-03-12T00:00:00.000Z",
+            "reason": "功能异常",
+            "status": "已完成"
+          },
+          "quality": {
+            "qualityId": "QAD009",
+            "orderId": "ORD010",
+            "inspectDate": "2024-03-10T00:00:00.000Z",
+            "result": "不合格",
+            "defectType": "性能故障"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      },
+      {
+        "id": "33691a5a-ec12-4835-b0d1-46db38d0778b",
+        "orderId": "ORD014",
+        "returnId": "RET014",
+        "qualityId": "QAD013",
+        "anomalyType": "conflict",
+        "description": "质检冲突：外观瑕疵，但退货状态为 已完成",
+        "severity": "high",
+        "conflictType": "外观瑕疵",
+        "rawData": {
+          "order": {
+            "orderId": "ORD014",
+            "orderDate": "2024-04-05T00:00:00.000Z",
+            "customerId": "C005",
+            "productId": "手机",
+            "amount": 3699
+          },
+          "return": {
+            "returnId": "RET014",
+            "orderId": "ORD014",
+            "returnDate": "2024-04-08T00:00:00.000Z",
+            "reason": "包装损坏",
+            "status": "已完成"
+          },
+          "quality": {
+            "qualityId": "QAD013",
+            "orderId": "ORD014",
+            "inspectDate": "2024-04-06T00:00:00.000Z",
+            "result": "不合格",
+            "defectType": "外观瑕疵"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      },
+      {
+        "id": "9bdb331c-8ece-472b-af72-1851fed4c208",
+        "orderId": "ORD016",
+        "returnId": "RET016",
+        "qualityId": "QAD015",
+        "anomalyType": "conflict",
+        "description": "质检冲突：性能故障，但退货状态为 待处理",
+        "severity": "high",
+        "conflictType": "性能故障",
+        "rawData": {
+          "order": {
+            "orderId": "ORD016",
+            "orderDate": "2024-04-15T00:00:00.000Z",
+            "customerId": "C007",
+            "productId": "音箱",
+            "amount": 999
+          },
+          "return": {
+            "returnId": "RET016",
+            "orderId": "ORD016",
+            "returnDate": "2024-04-18T00:00:00.000Z",
+            "reason": "不喜欢",
+            "status": "待处理"
+          },
+          "quality": {
+            "qualityId": "QAD015",
+            "orderId": "ORD016",
+            "inspectDate": "2024-04-16T00:00:00.000Z",
+            "result": "不合格",
+            "defectType": "性能故障"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      },
+      {
+        "id": "470501b2-8654-408c-b364-333ccad535c0",
+        "orderId": "ORD018",
+        "returnId": "RET018",
+        "qualityId": "QAD017",
+        "anomalyType": "conflict",
+        "description": "质检冲突：包装问题，但退货状态为 处理中",
+        "severity": "high",
+        "conflictType": "包装问题",
+        "rawData": {
+          "order": {
+            "orderId": "ORD018",
+            "orderDate": "2024-05-01T00:00:00.000Z",
+            "customerId": "C002",
+            "productId": "笔记本电脑",
+            "amount": 8299
+          },
+          "return": {
+            "returnId": "RET018",
+            "orderId": "ORD018",
+            "returnDate": "2024-05-05T00:00:00.000Z",
+            "reason": "其他",
+            "status": "处理中"
+          },
+          "quality": {
+            "qualityId": "QAD017",
+            "orderId": "ORD018",
+            "inspectDate": "2024-05-03T00:00:00.000Z",
+            "result": "不合格",
+            "defectType": "包装问题"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      },
+      {
+        "id": "3be1ae7b-ec6b-4708-9e97-9ce773ec3dbe",
+        "orderId": "ORD005",
+        "returnId": "RET005",
+        "qualityId": "QAD020",
+        "anomalyType": "conflict",
+        "description": "质检冲突：性能故障，但退货状态为 已完成",
+        "severity": "high",
+        "conflictType": "性能故障",
+        "rawData": {
+          "order": {
+            "orderId": "ORD005",
+            "orderDate": "2024-02-10T00:00:00.000Z",
+            "customerId": "C001",
+            "productId": "平板",
+            "amount": 2599
+          },
+          "return": {
+            "returnId": "RET005",
+            "orderId": "ORD005",
+            "returnDate": "2024-02-18T00:00:00.000Z",
+            "reason": "功能异常",
+            "status": "已完成"
+          },
+          "quality": {
+            "qualityId": "QAD020",
+            "orderId": "ORD005",
+            "inspectDate": "2024-02-20T00:00:00.000Z",
+            "result": "不合格",
+            "defectType": "性能故障"
+          }
+        },
+        "createdAt": "2026-06-07T13:31:49.135Z"
+      }
+    ]
+  }
+]

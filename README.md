@@ -221,8 +221,11 @@ npm run client:dev
 ## API 接口
 
 ### 数据导入
+- `POST /api/import/upload` - 上传 CSV 文件（multipart/form-data）
+  - 请求参数：`fileType (form-data), file (form-data)
 - `GET /api/import/sample` - 获取示例数据
 - `POST /api/import/save` - 保存上传的文件
+  - 请求参数：`{ fileType, fileName, data, columns }`
 - `POST /api/import/validate` - 数据校验（结构+行级+关联字段）
   - 请求参数：`{ fileType, data, columns, mapping, enableAutoIsolate }`
   - 返回字段：
@@ -232,29 +235,39 @@ npm run client:dev
     - `errors: ValidationError[]` - 错误列表
     - `validData: any[]` - 有效数据
     - `badRows: BadRow[]` - 坏行列表
+- `GET /api/import/raw/:fileId` - 获取原始文件数据
 
 ### 字段映射
 - `GET /api/mapping` - 获取历史映射列表
 - `GET /api/mapping/:id` - 获取指定映射
-- `POST /api/mapping/auto` - 自动映射
-- `POST /api/mapping` - 保存映射
+- `POST /api/mapping/auto-map` - 自动映射
+  - 请求参数：`{ orderColumns, returnColumns, qualityColumns }`
+- `POST /api/mapping/save` - 保存映射
+  - 请求参数：`{ name, mapping: { order, return, quality } }`
 
 ### 规则配置
 - `GET /api/rules` - 获取当前规则和历史
-- `POST /api/rules` - 保存规则
+- `GET /api/rules/:id` - 获取指定规则版本
+- `POST /api/rules/save` - 保存规则
+  - 请求参数：`{ rules: { overdueDays, duplicateReturnWindow, qualityConflictTypes, enableAutoIsolate } }`
+- `GET /api/rules/default` - 获取默认规则
 - `POST /api/rules/validate` - 验证规则
+  - 请求参数：`{ rules }`
 
 ### 异常分析
 - `POST /api/analyze/run` - 执行分析
+  - 请求参数：`{ mappingId, rulesId, orderFileId, returnFileId, qualityFileId }`
 - `GET /api/analyze/history` - 获取运行历史
-- `GET /api/analyze/:id` - 获取指定运行结果
+- `GET /api/analyze/run/:runId` - 获取指定运行结果
 - `GET /api/analyze/latest` - 获取最新结果
-- `GET /api/analyze/compare/:id1/:id2` - 对比两次运行
+- `GET /api/analyze/compare/:runId1/:runId2` - 对比两次运行
 
 ### 报告导出
-- `POST /api/export/create` - 创建导出
+- `POST /api/export` - 创建导出
+  - 请求参数：`{ runId, format, includeTypes, includeBadRows }`
 - `GET /api/export/history` - 获取导出历史
-- `GET /api/export/download/:id` - 下载导出文件
+- `GET /api/export/:exportId` - 获取导出记录
+- `GET /api/export/download/:fileName` - 下载导出文件
 
 ## 数据存储结构
 

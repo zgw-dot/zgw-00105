@@ -1,0 +1,14 @@
+{
+  "fileId": "4e43e94e-7540-4bf2-ba8a-f5cc94f96493",
+  "fileType": "quality",
+  "fileName": "api_test_quality.csv",
+  "columns": [
+    "质检单号",
+    "订单编号",
+    "质检日期",
+    "质检结果",
+    "缺陷类型"
+  ],
+  "rowCount": 20,
+  "createdAt": "2026-06-07T13:30:27.737Z"
+}

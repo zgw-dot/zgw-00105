@@ -1,0 +1,13 @@
+{
+  "fileId": "3c8bf618-04a3-4ce7-b5ff-71288602c640",
+  "fileType": "order",
+  "fileName": "bad_order_no_orderId.csv",
+  "columns": [
+    "下单日期",
+    "客户ID",
+    "商品名称",
+    "金额"
+  ],
+  "rowCount": 20,
+  "createdAt": "2026-06-07T13:31:49.158Z"
+}

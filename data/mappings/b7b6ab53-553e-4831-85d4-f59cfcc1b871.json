@@ -1,0 +1,27 @@
+{
+  "id": "b7b6ab53-553e-4831-85d4-f59cfcc1b871",
+  "name": "坏映射测试",
+  "mapping": {
+    "order": {
+      "下单日期": "orderDate",
+      "客户ID": "customerId",
+      "商品名称": "productId",
+      "金额": "amount"
+    },
+    "return": {
+      "退货单号": "returnId",
+      "订单编号": "orderId",
+      "退货日期": "returnDate",
+      "退货原因": "reason",
+      "状态": "status"
+    },
+    "quality": {
+      "质检单号": "qualityId",
+      "订单编号": "orderId",
+      "质检日期": "inspectDate",
+      "质检结果": "result",
+      "缺陷类型": "defectType"
+    }
+  },
+  "createdAt": "2026-06-07T13:27:34.891Z"
+}

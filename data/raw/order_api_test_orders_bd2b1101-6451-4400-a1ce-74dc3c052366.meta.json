@@ -1,0 +1,14 @@
+{
+  "fileId": "bd2b1101-6451-4400-a1ce-74dc3c052366",
+  "fileType": "order",
+  "fileName": "api_test_orders.csv",
+  "columns": [
+    "订单编号",
+    "下单日期",
+    "客户ID",
+    "商品名称",
+    "金额"
+  ],
+  "rowCount": 20,
+  "createdAt": "2026-06-07T13:30:27.729Z"
+}

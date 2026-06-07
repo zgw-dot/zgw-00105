@@ -1,0 +1,28 @@
+{
+  "id": "0f7a8d11-e73e-4cc6-8cd0-76ad7ba9c051",
+  "name": "API 测试映射",
+  "mapping": {
+    "order": {
+      "订单编号": "orderId",
+      "下单日期": "orderDate",
+      "客户ID": "customerId",
+      "商品名称": "productId",
+      "金额": "amount"
+    },
+    "return": {
+      "退货单号": "returnId",
+      "订单编号": "orderId",
+      "退货日期": "returnDate",
+      "退货原因": "reason",
+      "状态": "status"
+    },
+    "quality": {
+      "质检单号": "qualityId",
+      "订单编号": "orderId",
+      "质检日期": "inspectDate",
+      "质检结果": "result",
+      "缺陷类型": "defectType"
+    }
+  },
+  "createdAt": "2026-06-07T13:28:50.688Z"
+}

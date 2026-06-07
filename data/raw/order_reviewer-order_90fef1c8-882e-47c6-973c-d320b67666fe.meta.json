@@ -1,0 +1,14 @@
+{
+  "fileId": "90fef1c8-882e-47c6-973c-d320b67666fe",
+  "fileType": "order",
+  "fileName": "reviewer-order.csv",
+  "columns": [
+    "orderId",
+    "orderDate",
+    "customerId",
+    "productId",
+    "amount"
+  ],
+  "rowCount": 2,
+  "createdAt": "2026-06-07T13:35:36.230Z"
+}

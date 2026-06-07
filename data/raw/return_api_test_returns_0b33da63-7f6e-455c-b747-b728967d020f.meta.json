@@ -1,0 +1,14 @@
+{
+  "fileId": "0b33da63-7f6e-455c-b747-b728967d020f",
+  "fileType": "return",
+  "fileName": "api_test_returns.csv",
+  "columns": [
+    "退货单号",
+    "订单编号",
+    "退货日期",
+    "退货原因",
+    "状态"
+  ],
+  "rowCount": 20,
+  "createdAt": "2026-06-07T13:28:50.709Z"
+}

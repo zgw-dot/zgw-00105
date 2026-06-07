@@ -1,0 +1,38 @@
+{
+  "id": "a6f75bc7-a6d5-4a27-8c94-c4e06e54df66",
+  "mappingId": "2b2d845e-2600-4ac9-9841-5934fac94fd3",
+  "rulesId": "d991aecf-7408-46f8-9a35-59879fb4b189",
+  "files": {
+    "order": {
+      "fileId": "90fef1c8-882e-47c6-973c-d320b67666fe",
+      "fileName": "reviewer-order.csv",
+      "rowCount": 2
+    },
+    "return": {
+      "fileId": "3179fa53-74a4-4b5a-9e31-9f8300038861",
+      "fileName": "reviewer-return.csv",
+      "rowCount": 2
+    },
+    "quality": {
+      "fileId": "107d981c-ecee-4dd7-98b5-1ed5e95fe03a",
+      "fileName": "reviewer-quality.csv",
+      "rowCount": 2
+    }
+  },
+  "summary": {
+    "totalOrders": 2,
+    "totalReturns": 2,
+    "totalQuality": 2,
+    "totalAnomalies": 3,
+    "anomalyByType": {
+      "overdue": 2,
+      "duplicate": 1,
+      "conflict": 0
+    },
+    "badRowCount": 0,
+    "processedAt": "2026-06-07T13:35:36.323Z"
+  },
+  "status": "completed",
+  "createdAt": "2026-06-07T13:35:36.323Z",
+  "completedAt": "2026-06-07T13:35:36.323Z"
+}

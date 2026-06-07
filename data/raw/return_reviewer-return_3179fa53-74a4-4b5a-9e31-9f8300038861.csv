@@ -1,0 +1,3 @@
+returnId,orderId,returnDate,reason,status
+RET-RVW-1,RVW-A-1,2026-01-25,性能故障,approved
+RET-RVW-2,RVW-A-1,2026-01-28,性能故障,approved

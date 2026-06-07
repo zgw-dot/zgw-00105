@@ -1,0 +1,14 @@
+{
+  "fileId": "3179fa53-74a4-4b5a-9e31-9f8300038861",
+  "fileType": "return",
+  "fileName": "reviewer-return.csv",
+  "columns": [
+    "returnId",
+    "orderId",
+    "returnDate",
+    "reason",
+    "status"
+  ],
+  "rowCount": 2,
+  "createdAt": "2026-06-07T13:35:36.235Z"
+}

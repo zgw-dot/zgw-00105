@@ -1,0 +1,12 @@
+{
+  "id": "d991aecf-7408-46f8-9a35-59879fb4b189",
+  "rules": {
+    "overdueDays": 10,
+    "duplicateReturnWindow": 30,
+    "qualityConflictTypes": [
+      "性能故障"
+    ],
+    "enableAutoIsolate": true
+  },
+  "createdAt": "2026-06-07T13:35:36.223Z"
+}
