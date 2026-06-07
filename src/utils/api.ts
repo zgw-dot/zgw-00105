@@ -51,6 +51,7 @@ export const importApi = {
   validateData: (params: {
     fileType: FileType;
     data: any[];
+    columns: string[];
     mapping: Record<string, string>;
     enableAutoIsolate?: boolean;
   }) => request<{

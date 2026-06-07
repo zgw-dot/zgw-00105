@@ -1,0 +1,38 @@
+{
+  "id": "285af5ed-588b-464c-8f4d-7e555b918e10",
+  "mappingId": "36862f34-9dcc-4f3f-ba4f-e01a7651dfaa",
+  "rulesId": "43064bf0-cb8c-4318-a583-b72cbe03b148",
+  "files": {
+    "order": {
+      "fileId": "4b795400-7f55-4b7a-b989-9df0d7bc5e46",
+      "fileName": "review-api-orders.csv",
+      "rowCount": 2
+    },
+    "return": {
+      "fileId": "35bedf28-9a70-4001-afe2-ccb2e3d9cf0e",
+      "fileName": "review-api-returns.csv",
+      "rowCount": 1
+    },
+    "quality": {
+      "fileId": "f931840c-f82d-4e12-b4d0-cf06fde01a26",
+      "fileName": "review-api-quality.csv",
+      "rowCount": 1
+    }
+  },
+  "summary": {
+    "totalOrders": 2,
+    "totalReturns": 1,
+    "totalQuality": 1,
+    "totalAnomalies": 0,
+    "anomalyByType": {
+      "overdue": 0,
+      "duplicate": 0,
+      "conflict": 0
+    },
+    "badRowCount": 0,
+    "processedAt": "2026-06-07T13:03:09.908Z"
+  },
+  "status": "completed",
+  "createdAt": "2026-06-07T13:03:09.908Z",
+  "completedAt": "2026-06-07T13:03:09.908Z"
+}

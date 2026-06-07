@@ -1,0 +1,20 @@
+[
+  {
+    "type": "overdue",
+    "count": 0,
+    "description": "退货周期超过 15 天的异常订单",
+    "items": []
+  },
+  {
+    "type": "duplicate",
+    "count": 0,
+    "description": "30 天内同一订单多次退货",
+    "items": []
+  },
+  {
+    "type": "conflict",
+    "count": 0,
+    "description": "质检结果为 performance 但退货未被拒绝",
+    "items": []
+  }
+]

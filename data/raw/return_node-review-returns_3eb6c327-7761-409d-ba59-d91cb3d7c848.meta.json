@@ -1,0 +1,14 @@
+{
+  "fileId": "3eb6c327-7761-409d-ba59-d91cb3d7c848",
+  "fileType": "return",
+  "fileName": "node-review-returns.csv",
+  "columns": [
+    "returnId",
+    "orderId",
+    "returnDate",
+    "reason",
+    "status"
+  ],
+  "rowCount": 1,
+  "createdAt": "2026-06-07T13:03:42.643Z"
+}

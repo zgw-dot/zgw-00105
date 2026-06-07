@@ -9,6 +9,7 @@ import {
 import { generateSampleData, getSampleDataAll } from '../services/sampleData';
 import {
   validateRowData,
+  validateStructure,
   checkRejectAllCondition,
 } from '../services/validation';
 import type { FileType, UploadResponse, ValidationError } from '../../shared';
@@ -71,18 +72,54 @@ router.post(
 
 router.post('/validate', async (req: Request, res: Response) => {
   try {
-    const { fileType, data, mapping, enableAutoIsolate } = req.body;
+    const { fileType, data, mapping, columns, enableAutoIsolate } = req.body;
 
     if (!fileType || !data || !mapping) {
       return res.status(400).json({ success: false, error: '缺少必要参数' });
+    }
+
+    const structureValidation = validateStructure(
+      fileType as FileType,
+      columns || [],
+      mapping
+    );
+
+    if (structureValidation.rejectAll) {
+      return res.json({
+        success: false,
+        rejectAll: true,
+        rejectReason: structureValidation.rejectReason,
+        errors: structureValidation.errors,
+        badRowCount: 0,
+      });
+    }
+
+    if (!structureValidation.valid) {
+      return res.json({
+        success: false,
+        rejectAll: false,
+        errors: structureValidation.errors,
+        badRowCount: 0,
+      });
     }
 
     const validation = validateRowData(
       fileType as FileType,
       data,
       mapping,
-      enableAutoIsolate ?? true
+      enableAutoIsolate ?? true,
+      columns || []
     );
+
+    if (validation.rejectAll) {
+      return res.json({
+        success: false,
+        rejectAll: true,
+        rejectReason: validation.rejectReason,
+        errors: validation.errors,
+        badRowCount: 0,
+      });
+    }
 
     const rejectCheck = checkRejectAllCondition(data.length, validation.badRows.length);
 

@@ -16,6 +16,12 @@ export const REQUIRED_FIELDS: Record<FileType, string[]> = {
   quality: ['qualityId', 'orderId', 'inspectDate'],
 };
 
+export const JOIN_FIELDS: Record<FileType, string[]> = {
+  order: ['orderId'],
+  return: ['orderId'],
+  quality: ['orderId'],
+};
+
 export interface ValidationResult {
   valid: boolean;
   rejectAll: boolean;
@@ -29,21 +35,39 @@ export const validateStructure = (
   fileType: FileType,
   columns: string[],
   mapping: Record<string, string>
-): { valid: boolean; errors: ValidationError[] } => {
+): { valid: boolean; rejectAll: boolean; rejectReason?: string; errors: ValidationError[] } => {
   const errors: ValidationError[] = [];
   const requiredFields = REQUIRED_FIELDS[fileType];
+  const joinFields = JOIN_FIELDS[fileType];
   
   const mappedColumns = Object.keys(mapping);
   const mappedSystemFields = Object.values(mapping);
   
   for (const required of requiredFields) {
-    if (!mappedSystemFields.includes(required)) {
-      const csvColumn = mappedColumns.find(col => mapping[col] === required);
-      if (!csvColumn) {
+    const csvColumn = mappedColumns.find(col => mapping[col] === required);
+    if (!csvColumn) {
+      errors.push({
+        errorType: 'missing_column',
+        errorMessage: `缺少必需字段映射: ${required}`,
+        column: required,
+      });
+    } else if (!columns.includes(csvColumn)) {
+      if (joinFields.includes(required)) {
+        return {
+          valid: false,
+          rejectAll: true,
+          rejectReason: `关联字段映射错误: CSV 文件中不存在列 "${csvColumn}"（映射到 ${required}），无法进行数据关联，整批拒绝`,
+          errors: [{
+            errorType: 'missing_column',
+            errorMessage: `CSV 文件中不存在列: ${csvColumn}`,
+            column: csvColumn,
+          }],
+        };
+      } else {
         errors.push({
           errorType: 'missing_column',
-          errorMessage: `缺少必需字段映射: ${required}`,
-          column: required,
+          errorMessage: `CSV 文件中不存在列: ${csvColumn}（映射到 ${required}）`,
+          column: csvColumn,
         });
       }
     }
@@ -51,6 +75,7 @@ export const validateStructure = (
   
   return {
     valid: errors.length === 0,
+    rejectAll: false,
     errors,
   };
 };
@@ -59,13 +84,15 @@ export const validateRowData = (
   fileType: FileType,
   data: any[],
   mapping: Record<string, string>,
-  enableAutoIsolate: boolean = true
+  enableAutoIsolate: boolean = true,
+  columns: string[] = []
 ): ValidationResult => {
   const errors: ValidationError[] = [];
   const badRows: BadRow[] = [];
   const validData: any[] = [];
   const seenOrderIds = new Set<string>();
   
+  const joinFields = JOIN_FIELDS[fileType];
   const orderIdColumn = Object.keys(mapping).find(k => mapping[k] === 'orderId');
   const dateColumns: Record<FileType, string[]> = {
     order: ['orderDate'],
@@ -74,14 +101,89 @@ export const validateRowData = (
   };
   
   const amountColumn = Object.keys(mapping).find(k => mapping[k] === 'amount');
+
+  for (const joinField of joinFields) {
+    const csvColumn = Object.keys(mapping).find(k => mapping[k] === joinField);
+    if (csvColumn && columns.length > 0 && !columns.includes(csvColumn)) {
+      return {
+        valid: false,
+        rejectAll: true,
+        rejectReason: `关联字段缺失: CSV 文件中不存在列 "${csvColumn}"（映射到 ${joinField}），无法进行数据关联，整批拒绝`,
+        errors: [{
+          errorType: 'missing_column',
+          errorMessage: `CSV 文件中不存在列: ${csvColumn}`,
+          column: csvColumn,
+        }],
+        badRows: [],
+        validData: [],
+      };
+    }
+    if (!csvColumn) {
+      return {
+        valid: false,
+        rejectAll: true,
+        rejectReason: `关联字段未映射: 缺少 ${joinField} 的字段映射，无法进行数据关联，整批拒绝`,
+        errors: [{
+          errorType: 'missing_column',
+          errorMessage: `缺少必需字段映射: ${joinField}`,
+          column: joinField,
+        }],
+        badRows: [],
+        validData: [],
+      };
+    }
+  }
+
+  if (orderIdColumn) {
+    let hasAnyValidOrderId = false;
+    for (let i = 0; i < data.length; i++) {
+      const row = data[i];
+      const orderIdValue = row[orderIdColumn];
+      if (orderIdValue !== undefined && orderIdValue !== null && String(orderIdValue).trim() !== '') {
+        hasAnyValidOrderId = true;
+        break;
+      }
+    }
+    if (!hasAnyValidOrderId) {
+      return {
+        valid: false,
+        rejectAll: true,
+        rejectReason: `关联字段为空: 所有行的 ${orderIdColumn}（映射到 orderId）均为空，无法进行数据关联，整批拒绝`,
+        errors: [{
+          errorType: 'missing_column',
+          errorMessage: `关联字段 orderId 所有行均为空`,
+          column: orderIdColumn,
+        }],
+        badRows: [],
+        validData: [],
+      };
+    }
+  }
   
   for (let i = 0; i < data.length; i++) {
     const row = data[i];
     const rowErrors: ValidationError[] = [];
     let isBadRow = false;
     
-    if (orderIdColumn && row[orderIdColumn]) {
-      const orderId = String(row[orderIdColumn]).trim();
+    if (orderIdColumn) {
+      const orderIdValue = row[orderIdColumn];
+      if (orderIdValue === undefined || orderIdValue === null || String(orderIdValue).trim() === '') {
+        return {
+          valid: false,
+          rejectAll: true,
+          rejectReason: `关联字段为空: 第 ${i + 1} 行的 ${orderIdColumn}（映射到 orderId）为空，无法进行数据关联，整批拒绝`,
+          errors: [{
+            rowIndex: i,
+            errorType: 'missing_column',
+            errorMessage: `关联字段 orderId 为空`,
+            column: orderIdColumn,
+          }],
+          badRows: [],
+          validData: [],
+        };
+      }
+      
+      const orderId = String(orderIdValue).trim();
       if (seenOrderIds.has(orderId) && fileType === 'order') {
         const error: ValidationError = {
           rowIndex: i,

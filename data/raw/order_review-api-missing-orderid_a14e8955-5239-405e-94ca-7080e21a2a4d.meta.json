@@ -1,0 +1,13 @@
+{
+  "fileId": "a14e8955-5239-405e-94ca-7080e21a2a4d",
+  "fileType": "order",
+  "fileName": "review-api-missing-orderid.csv",
+  "columns": [
+    "orderDate",
+    "customerId",
+    "productId",
+    "amount"
+  ],
+  "rowCount": 1,
+  "createdAt": "2026-06-07T13:02:37.837Z"
+}

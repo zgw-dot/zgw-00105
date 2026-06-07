@@ -1,0 +1,14 @@
+{
+  "fileId": "35bedf28-9a70-4001-afe2-ccb2e3d9cf0e",
+  "fileType": "return",
+  "fileName": "review-api-returns.csv",
+  "columns": [
+    "returnId",
+    "orderId",
+    "returnDate",
+    "reason",
+    "status"
+  ],
+  "rowCount": 1,
+  "createdAt": "2026-06-07T13:03:09.877Z"
+}

@@ -12,7 +12,7 @@ import {
   getBadRows,
 } from '../services/storage';
 import { detectAnomalies, compareRuns } from '../services/anomalyDetector';
-import { validateAndMapData } from '../services/validation';
+import { validateAndMapData, validateRowData } from '../services/validation';
 import { generateId, now } from '../utils/common';
 import type { RunHistory, AnalyzeResult, BadRow } from '../../shared';
 
@@ -46,11 +46,44 @@ router.post('/run', async (req: Request, res: Response) => {
       return res.status(404).json({ success: false, error: '规则版本不存在' });
     }
 
-    const mappedOrders = validateAndMapData('order', orderData.data, mapping.mapping.order);
-    const mappedReturns = validateAndMapData('return', returnData.data, mapping.mapping.return);
-    const mappedQuality = validateAndMapData('quality', qualityData.data, mapping.mapping.quality);
+    const orderValidation = validateRowData('order', orderData.data, mapping.mapping.order, true, orderData.columns);
+    if (orderValidation.rejectAll) {
+      return res.status(400).json({
+        success: false,
+        error: `订单表校验失败: ${orderValidation.rejectReason}`,
+        rejectAll: true,
+        rejectReason: orderValidation.rejectReason,
+        errors: orderValidation.errors,
+      });
+    }
 
-    const allBadRows: BadRow[] = [];
+    const returnValidation = validateRowData('return', returnData.data, mapping.mapping.return, true, returnData.columns);
+    if (returnValidation.rejectAll) {
+      return res.status(400).json({
+        success: false,
+        error: `退货表校验失败: ${returnValidation.rejectReason}`,
+        rejectAll: true,
+        rejectReason: returnValidation.rejectReason,
+        errors: returnValidation.errors,
+      });
+    }
+
+    const qualityValidation = validateRowData('quality', qualityData.data, mapping.mapping.quality, true, qualityData.columns);
+    if (qualityValidation.rejectAll) {
+      return res.status(400).json({
+        success: false,
+        error: `质检表校验失败: ${qualityValidation.rejectReason}`,
+        rejectAll: true,
+        rejectReason: qualityValidation.rejectReason,
+        errors: qualityValidation.errors,
+      });
+    }
+
+    const mappedOrders = validateAndMapData('order', orderValidation.validData, mapping.mapping.order);
+    const mappedReturns = validateAndMapData('return', returnValidation.validData, mapping.mapping.return);
+    const mappedQuality = validateAndMapData('quality', qualityValidation.validData, mapping.mapping.quality);
+
+    const allBadRows: BadRow[] = [...orderValidation.badRows, ...returnValidation.badRows, ...qualityValidation.badRows];
 
     const { groups, summary } = detectAnomalies(
       rulesVersion.rules,

@@ -1,0 +1,13 @@
+{
+  "fileId": "93d46fe4-b886-4d3c-ad4f-9c3059572e10",
+  "fileType": "order",
+  "fileName": "node-review-missing-orderid.csv",
+  "columns": [
+    "orderDate",
+    "customerId",
+    "productId",
+    "amount"
+  ],
+  "rowCount": 1,
+  "createdAt": "2026-06-07T13:03:42.657Z"
+}

@@ -1,0 +1,2 @@
+qualityId,orderId,inspectDate,result,defectType
+Q-001,R-001,2024-01-03,bad,performance
