@@ -1,0 +1,14 @@
+{
+  "fileId": "bbd120c3-0cfa-452b-be0b-c40ff128154a",
+  "fileType": "return",
+  "fileName": "review2-returns.csv",
+  "columns": [
+    "returnId",
+    "orderId",
+    "returnDate",
+    "reason",
+    "status"
+  ],
+  "rowCount": 3,
+  "createdAt": "2026-06-07T12:40:48.061Z"
+}

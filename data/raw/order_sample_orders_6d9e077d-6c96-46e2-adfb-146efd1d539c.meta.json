@@ -1,0 +1,14 @@
+{
+  "fileId": "6d9e077d-6c96-46e2-adfb-146efd1d539c",
+  "fileType": "order",
+  "fileName": "sample_orders.csv",
+  "columns": [
+    "订单编号",
+    "下单日期",
+    "客户ID",
+    "商品名称",
+    "金额"
+  ],
+  "rowCount": 20,
+  "createdAt": "2026-06-07T12:31:56.190Z"
+}

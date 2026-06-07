@@ -1,0 +1,14 @@
+{
+  "fileId": "c6e23f95-6c4f-4c51-a11d-51789af00a52",
+  "fileType": "quality",
+  "fileName": "review2-quality.csv",
+  "columns": [
+    "qualityId",
+    "orderId",
+    "inspectDate",
+    "result",
+    "defectType"
+  ],
+  "rowCount": 1,
+  "createdAt": "2026-06-07T12:40:48.071Z"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "25b087ca-fa9a-4b9f-ae50-a67dee897127",
+  "name": "review2-mapping",
+  "mapping": {
+    "order": {
+      "orderId": "orderId",
+      "orderDate": "orderDate",
+      "amount": "amount",
+      "productId": "productId",
+      "customerId": "customerId"
+    },
+    "return": {
+      "returnId": "returnId",
+      "orderId": "orderId",
+      "status": "status",
+      "returnDate": "returnDate",
+      "reason": "reason"
+    },
+    "quality": {
+      "defectType": "defectType",
+      "orderId": "orderId",
+      "result": "result",
+      "qualityId": "qualityId",
+      "inspectDate": "inspectDate"
+    }
+  },
+  "createdAt": "2026-06-07T12:40:48.076Z"
+}

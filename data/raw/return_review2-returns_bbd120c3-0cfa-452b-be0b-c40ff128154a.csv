@@ -1,0 +1,4 @@
+returnId,orderId,returnDate,reason,status
+RV2-RET-1,RV2-ORD-1,2026-02-05,性能故障,已通过
+RV2-RET-2,RV2-ORD-2,2026-01-15,包装问题,已通过
+RV2-RET-3,RV2-ORD-2,2026-01-20,包装问题,已通过

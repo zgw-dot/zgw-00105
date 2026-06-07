@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "runId": "a4caea54-c054-4e9f-86d1-4de3d8a63557",
+    "mappingId": "25b087ca-fa9a-4b9f-ae50-a67dee897127",
+    "rulesId": "182283eb-8b29-4306-a0df-cb398a4edb6c",
+    "exportedAt": "2026-06-07T12:40:48.135Z",
+    "includeTypes": [
+      "overdue",
+      "duplicate",
+      "conflict"
+    ],
+    "includeBadRows": true,
+    "totalAnomalies": 3
+  },
+  "anomalies": [
+    {
+      "type": "overdue",
+      "typeLabel": "超期退货",
+      "count": 1,
+      "description": "退货周期超过 15 天的异常订单",
+      "items": [
+        {
+          "id": "f1ecf683-5aaa-4163-a118-5d7a7943b9c9",
+          "orderId": "RV2-ORD-1",
+          "returnId": "RV2-RET-1",
+          "anomalyType": "overdue",
+          "anomalyTypeLabel": "超期退货",
+          "description": "退货超期 35 天（阈值：15 天）",
+          "severity": "high",
+          "severityLabel": "高",
+          "daysOverdue": 35,
+          "rawData": {
+            "order": {
+              "orderId": "RV2-ORD-1",
+              "orderDate": "2026-01-01T00:00:00.000Z",
+              "amount": 100,
+              "productId": "P1",
+              "customerId": "C1"
+            },
+            "return": {
+              "returnId": "RV2-RET-1",
+              "orderId": "RV2-ORD-1",
+              "status": "已通过",
+              "returnDate": "2026-02-05T00:00:00.000Z",
+              "reason": "性能故障"
+            }
+          },
+          "createdAt": "2026-06-07T12:40:48.099Z"
+        }
+      ]
+    },
+    {
+      "type": "duplicate",
+      "typeLabel": "重复退货",
+      "count": 1,
+      "description": "30 天内同一订单多次退货",
+      "items": [
+        {
+          "id": "0f10fbd9-eac2-4d29-9f84-c43ef212d9ea",
+          "orderId": "RV2-ORD-2",
+          "returnId": "RV2-RET-2",
+          "anomalyType": "duplicate",
+          "anomalyTypeLabel": "重复退货",
+          "description": "30 天内重复退货 2 次",
+          "severity": "medium",
+          "severityLabel": "中",
+          "duplicateCount": 2,
+          "rawData": {
+            "order": {
+              "orderId": "RV2-ORD-2",
+              "orderDate": "2026-01-10T00:00:00.000Z",
+              "amount": 200,
+              "productId": "P2",
+              "customerId": "C2"
+            },
+            "return": {
+              "returnId": "RV2-RET-2",
+              "orderId": "RV2-ORD-2",
+              "status": "已通过",
+              "returnDate": "2026-01-15T00:00:00.000Z",
+              "reason": "包装问题"
+            }
+          },
+          "createdAt": "2026-06-07T12:40:48.101Z"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "typeLabel": "质检冲突",
+      "count": 1,
+      "description": "质检结果为 性能故障 但退货未被拒绝",
+      "items": [
+        {
+          "id": "743bbdbc-d134-4bd4-9d49-1df166a96174",
+          "orderId": "RV2-ORD-1",
+          "returnId": "RV2-RET-1",
+          "qualityId": "RV2-Q-1",
+          "anomalyType": "conflict",
+          "anomalyTypeLabel": "质检冲突",
+          "description": "质检冲突：性能故障，但退货状态为 已通过",
+          "severity": "high",
+          "severityLabel": "高",
+          "conflictType": "性能故障",
+          "rawData": {
+            "order": {
+              "orderId": "RV2-ORD-1",
+              "orderDate": "2026-01-01T00:00:00.000Z",
+              "amount": 100,
+              "productId": "P1",
+              "customerId": "C1"
+            },
+            "return": {
+              "returnId": "RV2-RET-1",
+              "orderId": "RV2-ORD-1",
+              "status": "已通过",
+              "returnDate": "2026-02-05T00:00:00.000Z",
+              "reason": "性能故障"
+            },
+            "quality": {
+              "defectType": "性能故障",
+              "orderId": "RV2-ORD-1",
+              "result": "不合格",
+              "qualityId": "RV2-Q-1",
+              "inspectDate": "2026-02-06T00:00:00.000Z"
+            }
+          },
+          "createdAt": "2026-06-07T12:40:48.101Z"
+        }
+      ]
+    }
+  ],
+  "badRows": []
+}

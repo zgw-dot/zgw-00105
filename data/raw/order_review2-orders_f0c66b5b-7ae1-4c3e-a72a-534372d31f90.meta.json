@@ -1,0 +1,14 @@
+{
+  "fileId": "f0c66b5b-7ae1-4c3e-a72a-534372d31f90",
+  "fileType": "order",
+  "fileName": "review2-orders.csv",
+  "columns": [
+    "orderId",
+    "orderDate",
+    "customerId",
+    "productId",
+    "amount"
+  ],
+  "rowCount": 2,
+  "createdAt": "2026-06-07T12:40:48.039Z"
+}

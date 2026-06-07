@@ -1,0 +1,14 @@
+{
+  "id": "f7cc190a-0f2a-4a17-bb34-b75637c1d235",
+  "rules": {
+    "overdueDays": 15,
+    "duplicateReturnWindow": 30,
+    "qualityConflictTypes": [
+      "性能故障",
+      "外观瑕疵",
+      "包装问题"
+    ],
+    "enableAutoIsolate": true
+  },
+  "createdAt": "2026-06-07T12:31:56.144Z"
+}

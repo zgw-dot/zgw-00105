@@ -1,0 +1,38 @@
+{
+  "id": "e17f92fd-b46d-4770-aac7-7d7ac95f4e04",
+  "mappingId": "5e9eba51-40a9-4a60-9061-88d16c920a67",
+  "rulesId": "f7cc190a-0f2a-4a17-bb34-b75637c1d235",
+  "files": {
+    "order": {
+      "fileId": "6d9e077d-6c96-46e2-adfb-146efd1d539c",
+      "fileName": "sample_orders.csv",
+      "rowCount": 20
+    },
+    "return": {
+      "fileId": "2b381d29-0ad2-4a11-86eb-ca111feb94c7",
+      "fileName": "sample_returns.csv",
+      "rowCount": 20
+    },
+    "quality": {
+      "fileId": "e49cdb2f-462d-4802-a521-a9cd8fefa26c",
+      "fileName": "sample_quality.csv",
+      "rowCount": 20
+    }
+  },
+  "summary": {
+    "totalOrders": 20,
+    "totalReturns": 20,
+    "totalQuality": 20,
+    "totalAnomalies": 14,
+    "anomalyByType": {
+      "overdue": 3,
+      "duplicate": 2,
+      "conflict": 9
+    },
+    "badRowCount": 0,
+    "processedAt": "2026-06-07T12:31:56.254Z"
+  },
+  "status": "completed",
+  "createdAt": "2026-06-07T12:31:56.254Z",
+  "completedAt": "2026-06-07T12:31:56.254Z"
+}
