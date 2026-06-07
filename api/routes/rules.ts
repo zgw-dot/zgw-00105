@@ -27,6 +27,13 @@ router.get('/', async (req: Request, res: Response) => {
   }
 });
 
+router.get('/default', async (req: Request, res: Response) => {
+  res.json({
+    success: true,
+    rules: DEFAULT_RULES,
+  });
+});
+
 router.get('/:id', async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
@@ -77,13 +84,6 @@ router.post('/save', async (req: Request, res: Response) => {
     console.error('Save rules error:', error);
     res.status(500).json({ success: false, error: '保存规则失败' });
   }
-});
-
-router.get('/default', async (req: Request, res: Response) => {
-  res.json({
-    success: true,
-    rules: DEFAULT_RULES,
-  });
 });
 
 router.post('/validate', async (req: Request, res: Response) => {

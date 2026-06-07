@@ -1,0 +1,14 @@
+{
+  "fileId": "48e02678-7e95-4d3d-9400-f9eb3aa6078b",
+  "fileType": "return",
+  "fileName": "reviewer-returns.csv",
+  "columns": [
+    "退货单号",
+    "订单编号",
+    "退货日期",
+    "退货原因",
+    "状态"
+  ],
+  "rowCount": 20,
+  "createdAt": "2026-06-07T13:49:22.844Z"
+}

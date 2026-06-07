@@ -13,7 +13,8 @@
     "dev": "concurrently \"npm run client:dev\" \"npm run server:dev\"",
     "test:validation": "tsx test/validation.test.ts",
     "test:api-docs": "tsx test/check-api-docs.ts",
-    "test:e2e": "tsx test/e2e.test.ts"
+    "test:e2e": "tsx test/e2e.test.ts",
+    "test:rules-routing": "node test/rules-routing.test.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",

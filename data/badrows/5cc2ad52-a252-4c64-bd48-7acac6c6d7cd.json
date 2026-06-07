@@ -1,0 +1,19 @@
+[
+  {
+    "id": "21b74607-49e0-493f-8446-416b8549dd03",
+    "fileType": "order",
+    "rowIndex": 19,
+    "rowData": {
+      "订单编号": "ORD020",
+      "下单日期": "invalid-date",
+      "客户ID": "C003",
+      "商品名称": "手机",
+      "金额": "3899"
+    },
+    "errorType": "invalid_date",
+    "errorMessage": "日期格式错误: invalid-date",
+    "isolationReason": "数据格式校验失败，已自动隔离",
+    "handled": false,
+    "createdAt": "2026-06-07T13:49:22.890Z"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "fileId": "2a01c837-327d-4416-a870-1e9875a3a46e",
+  "fileType": "quality",
+  "fileName": "reviewer-quality.csv",
+  "columns": [
+    "质检单号",
+    "订单编号",
+    "质检日期",
+    "质检结果",
+    "缺陷类型"
+  ],
+  "rowCount": 20,
+  "createdAt": "2026-06-07T13:49:22.849Z"
+}

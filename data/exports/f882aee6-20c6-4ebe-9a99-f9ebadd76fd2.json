@@ -1,0 +1,20 @@
+{
+  "id": "f882aee6-20c6-4ebe-9a99-f9ebadd76fd2",
+  "metadata": {
+    "exportId": "f882aee6-20c6-4ebe-9a99-f9ebadd76fd2",
+    "runId": "5cc2ad52-a252-4c64-bd48-7acac6c6d7cd",
+    "mappingId": "4cd13c28-a1ed-43c2-9e63-8ca257c5194d",
+    "rulesId": "57f87c38-7b23-498b-8662-f6a9547e3f30",
+    "format": "json",
+    "exportedAt": "2026-06-07T13:49:22.912Z",
+    "includedTypes": [
+      "overdue",
+      "duplicate",
+      "conflict"
+    ],
+    "includeBadRows": true,
+    "recordCount": 11,
+    "fileName": "_____2026-06-07T13-49-22_f882aee6.json"
+  },
+  "downloadUrl": "/api/export/download/_____2026-06-07T13-49-22_f882aee6.json"
+}
